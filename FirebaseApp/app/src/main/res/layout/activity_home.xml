@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:fitsSystemWindows="true">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view1"
+            android:layout_width="50dp"
+            app:lottie_colorFilter="@color/colorPrimaryDark"
+            android:layout_height="50dp"
+            android:layout_margin="10sp"
+            android:scaleType="centerCrop"
+            app:lottie_rawRes="@raw/menu"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+        <TextView
+            android:layout_width="182dp"
+            android:layout_height="50dp"
+            android:layout_margin="10sp"
+            android:fontFamily="@font/bungee_shade"
+            android:gravity="center"
+            android:text="@string/firebase_app"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="20sp" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/logout"
+            android:layout_width="50dp"
+            app:lottie_colorFilter="@color/colorPrimaryDark"
+            android:layout_height="50dp"
+            android:layout_margin="10sp"
+            android:scaleType="centerCrop"
+            app:lottie_rawRes="@raw/out"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
