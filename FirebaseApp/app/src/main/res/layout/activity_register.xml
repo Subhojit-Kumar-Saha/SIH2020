@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/crop"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/l1"
@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/sigmar_one"
-        android:text="@string/login"
+        android:text="@string/register"
         android:textColor="#eb4034"
         android:textSize="40sp" />
 
@@ -74,29 +74,14 @@
                 app:met_floatingLabel="highlight"/>
 
             <Button
-                android:id="@+id/loginBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/login"
-                android:background="@drawable/customloginbtn"
-                android:textColor="#ffffff"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/don_t_have_an_account"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textColor="#ffffff"
-                android:textAlignment="center"/>
-            <Button
-                android:id="@+id/registerBtn1"
+                android:id="@+id/registerBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/register"
-                android:background="@drawable/customregisterbtn"
+                android:background="@drawable/customloginbtn"
                 android:textColor="#ffffff"
                 android:layout_gravity="center_horizontal"/>
+
 
         </LinearLayout>
 

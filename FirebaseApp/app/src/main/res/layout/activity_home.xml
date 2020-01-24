@@ -1,51 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:fitsSystemWindows="true">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:orientation="horizontal">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10sp"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_colorFilter="@color/colorPrimaryDark"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/menu" />
+
+            <TextView
+                android:layout_width="182dp"
+                android:layout_height="50dp"
+                android:layout_margin="10sp"
+                android:fontFamily="@font/bungee_shade"
+                android:gravity="center"
+                android:text="@string/firebase_app"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/logout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10sp"
+                android:scaleType="centerCrop"
+                app:lottie_autoPlay="true"
+                app:lottie_colorFilter="@color/colorPrimaryDark"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading" />
+
+        </LinearLayout>
+
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view1"
-            android:layout_width="50dp"
-            app:lottie_colorFilter="@color/colorPrimaryDark"
-            android:layout_height="50dp"
-            android:layout_margin="10sp"
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:layout_marginBottom="10sp"
+            android:layout_below="@+id/l1"
             android:scaleType="centerCrop"
-            app:lottie_rawRes="@raw/menu"
+            app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_autoPlay="true" />
-
-        <TextView
-            android:layout_width="182dp"
-            android:layout_height="50dp"
-            android:layout_margin="10sp"
-            android:fontFamily="@font/bungee_shade"
-            android:gravity="center"
-            android:text="@string/firebase_app"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textSize="20sp" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/logout"
-            android:layout_width="50dp"
-            app:lottie_colorFilter="@color/colorPrimaryDark"
-            android:layout_height="50dp"
-            android:layout_margin="10sp"
-            android:scaleType="centerCrop"
-            app:lottie_rawRes="@raw/out"
-            app:lottie_loop="true"
-            app:lottie_autoPlay="true" />
-
-    </LinearLayout>
+            app:lottie_rawRes="@raw/location" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+
+        android:id="@+id/navview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/setting">
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditProfileActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/edit"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/editname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_number"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:inputType="phone"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editdob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:hint="@string/date_of_birth"
+        android:layout_marginTop="10dp"
+        android:inputType="date"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editaddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/address"
+        android:layout_marginTop="10dp"
+        android:layout_margin="15dp"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editcity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/city"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editstate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/state"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/editzip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pincode"
+        android:layout_margin="15dp"
+        android:layout_marginTop="10dp"
+        android:inputType="number"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/update"
+        android:layout_margin="15dp"/>
+
+</LinearLayout>

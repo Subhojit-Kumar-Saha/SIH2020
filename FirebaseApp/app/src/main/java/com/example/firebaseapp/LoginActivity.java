@@ -3,6 +3,7 @@ package com.example.firebaseapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase database;
     private FirebaseAuth.AuthStateListener firebaseAuthListener;
-    private EditText username,password;
+    private MaterialEditText username,password;
     private Button loginBtn,registerBtn;
 
     @Override
@@ -31,10 +35,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username = (EditText) findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
+        username = (MaterialEditText) findViewById(R.id.username);
+        password = (MaterialEditText) findViewById(R.id.password);
         loginBtn = (Button) findViewById(R.id.loginBtn);
-        registerBtn = (Button) findViewById(R.id.registerBtn);
+        registerBtn = (Button) findViewById(R.id.registerBtn1);
+
+        registerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -56,18 +68,25 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(final View v) {
 
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
+                final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+                progressDialog.setMessage("Authenticating...");
+                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDialog.show();
+
+                String user = Objects.requireNonNull(username.getText()).toString();
+                String pass = Objects.requireNonNull(password.getText()).toString();
 
                 mAuth.signInWithEmailAndPassword(user,pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful())
                         {
+                            progressDialog.dismiss();
                             Snackbar snackbar = Snackbar.make(v, "Invalid Username and Password",Snackbar.LENGTH_LONG);
                             snackbar.show();
                         }
                         else {
+                            progressDialog.dismiss();
                             Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                             startActivity(intent);
                         }
@@ -76,28 +95,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                String user = username.getText().toString();
-                String pass = password.getText().toString();
 
-                mAuth.createUserWithEmailAndPassword(user,pass).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful())
-                        {
-                            Snackbar snackbar = Snackbar.make(v, "Error Occurred!!",Snackbar.LENGTH_LONG);
-                            snackbar.show();
-                        }
-                        else {
-                            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
-            }
-        });
     }
 
     @Override
